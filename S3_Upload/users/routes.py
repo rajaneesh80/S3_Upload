@@ -2,7 +2,7 @@ import os
 from S3_Upload import app
 from flask import Flask, render_template, request, redirect, Blueprint
 from werkzeug.utils import secure_filename
-#from S3_Upload.users.forms import Update_image
+from S3_Upload.users.forms import Update_image
 from S3_Upload.tools import upload_file_to_s3, list_files_in_s3, delete_file_from_s3
 
 
@@ -31,8 +31,10 @@ def allowed_file(filename):
 
 @users.route('/', methods=['GET','POST'])
 def upload_file():
-	if request.method == 'POST':
-		file    = request.files["user_file"]
+	form = Update_image()
+	#if request.method == 'POST':
+	if form.validate_on_submit():
+		file    = request.files["picture"]
 
 		if file.filename and allowed_file(file.filename):
 			file.filename = secure_filename(file.filename)
@@ -40,7 +42,7 @@ def upload_file():
 			return str(output)
 			#return render_template('index.html')
 	else:
-		return render_template('index.html')
+		return render_template('index.html', form=form)
 
 
 

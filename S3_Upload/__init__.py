@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
-#from S3_Upload.users.forms import Update_image
+from S3_Upload.users.forms import Update_image
 from config import Config
 
 

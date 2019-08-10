@@ -11,6 +11,32 @@
 
     <h1>Upload Your Files Bro</h1>
 
+
+<div class="container">
+  <form class="form-group" method="POST" action="" enctype="multipart/form-data">
+     {{ form.hidden_tag() }}
+
+      <div class="form-group">
+     
+     {{ form.picture.label(class="form-control-label") }}
+
+     {{ form.picture(class="form-control form-control-lg btn btn-outline-success")}}
+
+     </div>
+
+    <div class="form-group">
+         {{ form.submit(class="btn btn-outline-success") }}
+
+     </div>
+
+ </form>
+
+</div>
+
+
+
+  <!--
+
   <div class="container">
 
 
@@ -20,9 +46,13 @@
           <input type="file" class="form-control" placeholder="Filename" name="user_file">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 
-  </div>
+    </form>
+   </div>
+  -->
+
+
+ 
 
 </body>
 
