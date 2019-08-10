@@ -1,8 +1,7 @@
 import boto3
-from app import app
+from S3_Upload import app
 from config import Config
-
-
+from flask import request
 
 # CONFIG
 
@@ -34,3 +33,33 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         return e
 
     return "{}{}".format(app.config["S3_LOCATION"], file.filename)
+
+
+
+def list_files_in_s3(bucket_name):
+    try:
+        objects = s3.list_objects(Bucket=bucket_name)['Contents']
+
+    except Exception as e:
+        print("Something Happened: ", e)
+        return e
+
+    return objects
+
+####################
+
+def delete_file_from_s3(bucket_name, key):
+    try:
+        response = s3.delete_object(
+            Bucket=bucket_name,
+            Key=key
+    )
+
+    except Exception as e:
+        print("Something Happened: ", e)
+        return e
+
+    return response
+
+
+####################

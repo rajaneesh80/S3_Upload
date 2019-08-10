@@ -6,7 +6,7 @@ from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
 
 
-class Update_image(FlaskForm):
-	picture = FileField('Update_Iamge', validators=[FileAllowed(['jpg', 'png'])])
-	submit = SubmitField('Summit')
+# class Update_image(FlaskForm):
+# 	picture = FileField('Update_Iamge', validators=[FileAllowed(['jpg', 'png'])])
+# 	submit = SubmitField('Summit')
 
