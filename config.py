@@ -19,7 +19,7 @@ class Config(object):
     S3_BUCKET = os.environ.get('S3_BUCKET')
     S3_KEY = os.environ.get('S3_KEY')
     S3_SECRET = os.environ.get('S3_SECRET_ACCESS_KEY')
-    S3_LOCATION = 'http://{}.s3.eu-west-3.amazonaws.com/'.format(S3_BUCKET)
+    S3_LOCATION = 'http://{}.s3.eu-west-2.amazonaws.com/'.format(S3_BUCKET)
     ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
  
